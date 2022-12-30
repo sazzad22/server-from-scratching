@@ -39,6 +39,7 @@ class App {
         });
     }
 
+    //handle Error
     private initialiseErrorHandling(): void {
         this.express.use(ErrorMiddleware);
     }
