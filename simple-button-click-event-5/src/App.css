@@ -27,6 +27,13 @@
 .App-link {
   color: #61dafb;
 }
+.navbar{
+  color: #61dafb;
+  height: 2rem;
+  width: 50 rem;
+  background-color: aqua;
+  margin-bottom: 8rem;
+}
 
 @keyframes App-logo-spin {
   from {
