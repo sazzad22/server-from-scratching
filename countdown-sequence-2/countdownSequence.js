@@ -31,5 +31,6 @@ function isCountdownSequence(arr) {
   }
 }
 
+//*Driver
 const myArray = [4,3,2,1, 4, 4, 3, 2, 1, 8, 3, 2, 1];
 console.log(findSequences(myArray));
