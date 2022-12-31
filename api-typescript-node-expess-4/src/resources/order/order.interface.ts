@@ -2,7 +2,7 @@ import { Document } from "mongoose";
 import OrderItem from '@/resources/orderItems/orderItem.interface';
 
 interface Order extends Document{
-    orderItems: Array<OrderItem>;
+    orderItems: Array<any>;
     phone: string;
 }
 

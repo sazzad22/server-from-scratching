@@ -4,11 +4,9 @@ import { array } from 'joi';
 
 const OrderSchema = new Schema(
     {
-        orderItems: [{
-            id: { //this id is of orderItems Collection, we populate this field with whichever id is matched from order collection
-                type: Schema.Types.ObjectId,
-                ref: "Editor",
-            }
+        orderItems: [{ //this id is of orderItems Collection, we populate this field with whichever id is matched from order collection
+            type: Schema.Types.ObjectId,
+            ref:"OrderItem"
         }] ,
         phone: {
             type: String,

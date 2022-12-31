@@ -15,6 +15,16 @@ class OrderService {
             throw new Error("Unable to create an order")
         }
     }
+
+    public async getAllOrderService(): Promise<Order[]>{
+        try {
+            /* const orders: Order[] = await this.order.find({});
+            console.log("Orders Service"); */
+            return await this.order.find();
+        } catch (error) {
+            throw new Error('Unable to get all orders');
+        }
+    }
 }
 
 export default OrderService;
