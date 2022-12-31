@@ -2,7 +2,7 @@ import { Router, Request, Response, NextFunction } from 'express';
 import Controller from '@/utils/interfaces/controller.interface';
 import HttpException from '@/utils/exceptions/http.exception';
 import validationMiddleware from '@/middleware/validation.middleware';
-import validate from '@/resources/order/order.validation';
+// import validate from '@/resources/order/order.validation';
 import OrderService from '@/resources/order/order.service';
 
 class OrderController implements Controller {
@@ -17,7 +17,6 @@ class OrderController implements Controller {
     private initialiseRoutes(): void {
         this.router.post(
             `${this.path}`,
-            validationMiddleware(validate.create),
             this.create
         );
     }
@@ -28,11 +27,11 @@ class OrderController implements Controller {
         next: NextFunction
     ): Promise<Response | void> => {
         try {
-            const { title, body } = req.body;
+            const { orderItems, phone } = req.body;
 
-            const post = await this.OrderService.create(title, body);
+            const order = await this.OrderService.create(orderItems, phone);
 
-            res.status(201).json({ post });
+            res.status(201).json({ order });
         } catch (error) {
             next(new HttpException(400, 'Cannot create post'));
         }
