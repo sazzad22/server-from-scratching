@@ -20,7 +20,7 @@ class OrderService {
         try {
             /* const orders: Order[] = await this.order.find({});
             console.log("Orders Service"); */
-            return await this.order.find();
+            return await this.order.find().populate("orderItems");
         } catch (error) {
             throw new Error('Unable to get all orders');
         }
