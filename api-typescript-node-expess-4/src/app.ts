@@ -16,6 +16,7 @@ class App {
         this.port = port;
 
         //calling the functions required
+        console.log("object");
         this.initialiseDatabaseConnection();
         this.initialiseMiddleware();
         this.initialiseControllers(controllers);
@@ -37,6 +38,7 @@ class App {
         controllers.forEach((controller: Controller) => {
             this.express.use('/api', controller.router);
         });
+        
     }
 
     //handle Error
@@ -48,8 +50,10 @@ class App {
         const { MONGO_USER, MONGO_PASSWORD, MONGO_PATH } = process.env;
 
         mongoose.connect(
-            `mongodb://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`
+            `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`
         );
+        console.log('mongoose connect');
+
     }
 
     public listen(): void {

@@ -1,12 +1,12 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import Controller from '@/utils/interfaces/controller.interface';
 import HttpException from '@/utils/exceptions/http.exception';
-import validationMiddleware from '@/middleware/validation.middleware';
+// import validationMiddleware from '@/middleware/validation.middleware';
 // import validate from '@/resources/order/order.validation';
 import OrderService from '@/resources/order/order.service';
 
 class OrderController implements Controller {
-    public path = '/posts';
+    public path = '/orders';
     public router = Router();
     private OrderService = new OrderService();
 
@@ -33,7 +33,7 @@ class OrderController implements Controller {
 
             res.status(201).json({ order });
         } catch (error) {
-            next(new HttpException(400, 'Cannot create post'));
+            next(new HttpException(400, 'Cannot create Order'));
         }
     };
 }

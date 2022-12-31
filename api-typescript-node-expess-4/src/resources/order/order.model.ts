@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import Order from '@/resources/order/order.interface';
+import { array } from 'joi';
 
 const OrderSchema = new Schema(
     {
@@ -8,7 +9,7 @@ const OrderSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: "Editor",
             }
-        }],
+        }] ,
         phone: {
             type: String,
             required: true,
