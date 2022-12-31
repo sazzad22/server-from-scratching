@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose';
 import Order from '@/resources/order/order.interface';
-import { array } from 'joi';
 
 const OrderSchema = new Schema(
     {

@@ -17,7 +17,7 @@ class OrderController implements Controller {
     }
 
     private initialiseRoutes(): void {
-        // create all orders
+        // create one orders
         this.router.post(
             `${this.path}`,
             this.create
